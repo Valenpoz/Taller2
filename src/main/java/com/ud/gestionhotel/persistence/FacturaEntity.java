@@ -60,4 +60,11 @@ public class FacturaEntity implements Serializable {
     public void setValorTotal(long valorTotal) {
         this.valorTotal = valorTotal;
     }
+
+    public ReservaEntity getReservaEntity(){ return reservaEntity;};
+
+    public void setReservaEntity(ReservaEntity reservaEntity) { this.reservaEntity = reservaEntity;}
+
+    public PagoEntity getPagoEntity() { return pagoEntity;}
+    public void setPagoEntity(PagoEntity pagoEntity) { this.pagoEntity = pagoEntity;}
 }

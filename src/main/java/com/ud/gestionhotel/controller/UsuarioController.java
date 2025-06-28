@@ -25,7 +25,7 @@ public class UsuarioController {
 
     @GetMapping
     public ResponseEntity<List<UsuarioEntity>> obtenerTodos() {
-        return ResponseEntity.ok(UsuarioService.obtenerTodos());
+        return ResponseEntity.ok(usuarioService.obtenerTodos());
     }
 
     @GetMapping("/{id}")
@@ -37,7 +37,7 @@ public class UsuarioController {
 
     @PostMapping
     public ResponseEntity<UsuarioEntity> crear(@Valid @RequestBody UsuarioEntity usuario) {
-        return ResponseEntity.status(HttpStatus.CREATED).body(UsuarioService.crear(usuario));
+        return ResponseEntity.status(HttpStatus.CREATED).body(usuarioService.crear(usuario));
     }
 
     @PutMapping("/{id}")

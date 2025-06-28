@@ -11,6 +11,7 @@ import java.time.LocalDateTime;
 @Table(name = "pago")
 public class PagoEntity implements Serializable {
 
+    public Object getReservaEntity;
     @Id
     @Column(name = "id_pago")
     private long id;
@@ -67,5 +68,13 @@ public class PagoEntity implements Serializable {
 
     public void setPagoTotal(long pagoTotal) {
         this.pagoTotal = pagoTotal;
+    }
+
+    public ReservaEntity getReservaEntity() {
+        return reservaEntity;
+    }
+
+    public void setReservaEntity(ReservaEntity reservaEntity) {
+        this.reservaEntity = reservaEntity;
     }
 }

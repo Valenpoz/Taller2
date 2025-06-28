@@ -25,7 +25,7 @@ public class PagoController {
 
     @GetMapping
     public ResponseEntity<List<PagoEntity>> obtenerTodos() {
-        return ResponseEntity.ok(PagoService.obtenerTodos());
+        return ResponseEntity.ok(pagoService.obtenerTodos());
     }
 
     @GetMapping("/{id}")
@@ -37,7 +37,7 @@ public class PagoController {
 
     @PostMapping
     public ResponseEntity<PagoEntity> crear(@Valid @RequestBody PagoEntity pago) {
-        return ResponseEntity.status(HttpStatus.CREATED).body(PagoService.crear(pago));
+        return ResponseEntity.status(HttpStatus.CREATED).body(pagoService.crear(pago));
     }
 
     @PutMapping("/{id}")

@@ -1,9 +1,8 @@
 package com.ud.gestionhotel.controller;
 
 import com.ud.gestionhotel.Service.AdministradorGeneralService;
-import com.ud.gestionhotel.Service.AdministradorService;
 import com.ud.gestionhotel.exception.RecursoNoEncontradoException;
-import com.ud.gestionhotel.persistence.AdministradorEntity;
+import com.ud.gestionhotel.persistence.AdministradorGeneralEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,29 +21,26 @@ public class AdministradorGeneral {
     public AdministradorGeneral(AdministradorGeneralService administradorGeneralService) {
         this.administradorGeneralService = administradorGeneralService;
     }
-  /*  @PostMappin
-    public ResponseEntity<AdministradorEntity> saveAdministrador(@RequestBody AdministradorEntity administradorEntity){
-        return ResponseEntity.ok(AdministradorService.saveAdministrador(administradorEntity));*/
 
     @GetMapping
-    public ResponseEntity<List<AdministradorEntity>> obtenerTodos() {
+    public ResponseEntity<List<AdministradorGeneralEntity>> obtenerTodos() {
         return ResponseEntity.ok(administradorGeneralService.obtenerTodos());
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<AdministradorEntity> obtenerPorId(@PathVariable Long id) {
+    public ResponseEntity<AdministradorGeneralEntity> obtenerPorId(@PathVariable Long id) {
         return administradorGeneralService.obtenerPorId(id)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
 
     @PostMapping
-    public ResponseEntity<AdministradorEntity> crear(@Valid @RequestBody AdministradorEntity administradorGeneral) {
+    public ResponseEntity<AdministradorGeneralEntity> crear(@Valid @RequestBody AdministradorGeneralEntity administradorGeneral) {
         return ResponseEntity.status(HttpStatus.CREATED).body(administradorGeneralService.crear(administradorGeneral));
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<AdministradorEntity> actualizar(@PathVariable Long id, @RequestBody AdministradorEntity administradorGeneral) {
+    public ResponseEntity<AdministradorGeneralEntity> actualizar(@PathVariable Long id, @RequestBody AdministradorGeneralEntity administradorGeneral) {
         try {
             return ResponseEntity.ok(administradorGeneralService.actualizar(id, administradorGeneral));
         } catch (RecursoNoEncontradoException e) {

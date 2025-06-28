@@ -3,7 +3,6 @@ import com.ud.gestionhotel.Service.AdministradorService;
 
 import com.ud.gestionhotel.exception.RecursoNoEncontradoException;
 import com.ud.gestionhotel.persistence.AdministradorEntity;
-import com.ud.gestionhotel.persistence.AdministradorEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

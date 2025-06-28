@@ -25,7 +25,7 @@ public class EmpleadoController {
 
     @GetMapping
     public ResponseEntity<List<EmpleadoEntity>> obtenerTodos() {
-        return ResponseEntity.ok(EmpleadoService.obtenerTodos());
+        return ResponseEntity.ok(empleadoService.obtenerTodos());
     }
 
     @GetMapping("/{id}")
@@ -37,7 +37,7 @@ public class EmpleadoController {
 
     @PostMapping
     public ResponseEntity<EmpleadoEntity> crear(@Valid @RequestBody EmpleadoEntity empleado) {
-        return ResponseEntity.status(HttpStatus.CREATED).body(EmpleadoService.crear(empleado));
+        return ResponseEntity.status(HttpStatus.CREATED).body(empleadoService.crear(empleado));
     }
 
     @PutMapping("/{id}")

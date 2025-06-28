@@ -1,6 +1,5 @@
 package com.ud.gestionhotel.controller;
 
-import com.ud.gestionhotel.Service.EmpleadoService;
 import com.ud.gestionhotel.Service.FacturaService;
 import com.ud.gestionhotel.exception.RecursoNoEncontradoException;
 import com.ud.gestionhotel.persistence.FacturaEntity;
@@ -25,7 +24,7 @@ public class FacturaController {
    
     @GetMapping
     public ResponseEntity<List<FacturaEntity>> obtenerTodos() {
-        return ResponseEntity.ok(FacturaService.obtenerTodos());
+        return ResponseEntity.ok(facturaService.obtenerTodos());
     }
 
     @GetMapping("/{id}")
@@ -37,7 +36,7 @@ public class FacturaController {
 
     @PostMapping
     public ResponseEntity<FacturaEntity> crear(@Valid @RequestBody FacturaEntity factura) {
-        return ResponseEntity.status(HttpStatus.CREATED).body(FacturaService.crear(factura));
+        return ResponseEntity.status(HttpStatus.CREATED).body(facturaService.crear(factura));
     }
 
     @PutMapping("/{id}")

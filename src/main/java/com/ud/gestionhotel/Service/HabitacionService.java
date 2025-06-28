@@ -3,6 +3,7 @@ package com.ud.gestionhotel.Service;
 import com.ud.gestionhotel.exception.RecursoNoEncontradoException;
 import com.ud.gestionhotel.persistence.HabitacionEntity;
 import com.ud.gestionhotel.repository.HabitacionRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,6 +14,7 @@ public class HabitacionService {
 
     private final HabitacionRepository habitacionRepository;
 
+    @Autowired
     public HabitacionService(HabitacionRepository habitacionRepository) {
         this.habitacionRepository = habitacionRepository;
     }
