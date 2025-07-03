@@ -28,7 +28,7 @@ public class PagoEntity implements Serializable {
     private ReservaEntity reservaEntity;
 
     @OneToOne(mappedBy = "pagoEntity")
-    private PagoEntity pagoEntity;
+    private FacturaEntity facturaEntity;
 
     public PagoEntity() {
     }
@@ -80,11 +80,11 @@ public class PagoEntity implements Serializable {
         this.reservaEntity = reservaEntity;
     }
 
-    public PagoEntity getPagoEntity() {
-        return pagoEntity;
+    public FacturaEntity getFacturaEntity() {
+        return facturaEntity;
     }
 
-    public void setPagoEntity(PagoEntity pagoEntity) {
-        this.pagoEntity = pagoEntity;
+    public void setFacturaEntity(FacturaEntity facturaEntity) {
+        this.facturaEntity = facturaEntity;
     }
 }
