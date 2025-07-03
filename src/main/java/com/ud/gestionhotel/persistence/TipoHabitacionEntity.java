@@ -54,6 +54,4 @@ public class TipoHabitacionEntity implements Serializable {
     public void setHotelEntity(HotelEntity hotelEntity) {
         this.hotelEntity = hotelEntity;
     }
-
-
 }

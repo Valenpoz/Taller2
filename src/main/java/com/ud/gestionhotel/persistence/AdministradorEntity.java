@@ -1,9 +1,6 @@
 package com.ud.gestionhotel.persistence;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 import java.io.Serializable;
 
@@ -24,6 +21,9 @@ public class AdministradorEntity implements Serializable {
     private String segundoApellido;
     private String correo;
     private String telefono;
+
+    @OneToOne(mappedBy = "administradorEntity")
+    private UsuarioEntity usuario;
 
     public AdministradorEntity() {
     }
@@ -92,5 +92,13 @@ public class AdministradorEntity implements Serializable {
 
     public void setTelefono(String telefono) {
         this.telefono = telefono;
+    }
+
+    public UsuarioEntity getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(UsuarioEntity usuario) {
+        this.usuario = usuario;
     }
 }

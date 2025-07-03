@@ -19,7 +19,6 @@ public class FacturaEntity implements Serializable {
     @Column(name = "valor_total")
     private long valorTotal;
 
-
     @ManyToOne
     @JoinColumn(name = "jk_id_reserva")
     private ReservaEntity reservaEntity;

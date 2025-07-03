@@ -1,8 +1,12 @@
 package com.ud.gestionhotel.persistence;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "hotel")
@@ -16,6 +20,12 @@ public class HotelEntity implements Serializable {
     private String telefono;
     private String correo;
     private String direccion;
+
+    @OneToMany(mappedBy = "hotelEntity")
+    private List<HabitacionEntity> habitaciones = new ArrayList<>();
+
+    @OneToMany(mappedBy = "hotelEntity")
+    private List<TipoHabitacionEntity> tipoHabitaciones = new ArrayList<>();
 
     public HotelEntity() {
     }
@@ -75,5 +85,21 @@ public class HotelEntity implements Serializable {
 
     public void setDireccion(String direccion) {
         this.direccion = direccion;
+    }
+
+    public List<HabitacionEntity> getHabitaciones() {
+        return habitaciones;
+    }
+
+    public void setHabitaciones(List<HabitacionEntity> habitaciones) {
+        this.habitaciones = habitaciones;
+    }
+
+    public List<TipoHabitacionEntity> getTipoHabitaciones() {
+        return tipoHabitaciones;
+    }
+
+    public void setTipoHabitaciones(List<TipoHabitacionEntity> tipoHabitaciones) {
+        this.tipoHabitaciones = tipoHabitaciones;
     }
 }

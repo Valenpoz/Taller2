@@ -1,11 +1,10 @@
 package com.ud.gestionhotel.persistence;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "cliente")
@@ -26,6 +25,12 @@ public class ClienteEntity implements Serializable {
 
     private Long cedula;
     private String direccion;
+
+    @OneToMany(mappedBy = "clienteEntity")
+    private List<ReservaEntity> reservaEntity = new ArrayList<>();
+
+    @OneToOne(mappedBy = "clienteEntity")
+    private UsuarioEntity usuario;
 
     public ClienteEntity() {
     }
@@ -94,5 +99,21 @@ public class ClienteEntity implements Serializable {
 
     public void setDireccion(String direccion) {
         this.direccion = direccion;
+    }
+
+    public List<ReservaEntity> getReservaEntity() {
+        return reservaEntity;
+    }
+
+    public void setReservaEntity(List<ReservaEntity> reservaEntity) {
+        this.reservaEntity = reservaEntity;
+    }
+
+    public UsuarioEntity getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(UsuarioEntity usuario) {
+        this.usuario = usuario;
     }
 }

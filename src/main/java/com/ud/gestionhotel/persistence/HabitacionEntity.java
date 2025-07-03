@@ -1,7 +1,10 @@
 package com.ud.gestionhotel.persistence;
 import jakarta.persistence.*;
+import jdk.dynalink.linker.LinkerServices;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "habitacion")
@@ -26,6 +29,10 @@ public class HabitacionEntity implements Serializable {
     @ManyToOne
     @JoinColumn(name = "fk_id_tipo_habitacion")
     private TipoHabitacionEntity tipoHabitacionEntity;
+
+    @OneToMany(mappedBy = "habitacionEntity")
+    private List<ReservaEntity> reservas = new ArrayList<>();
+
 
     public HabitacionEntity() {
     }
@@ -83,4 +90,11 @@ public class HabitacionEntity implements Serializable {
         this.tipoHabitacionEntity = tipoHabitacionEntity;
     }
 
+    public List<ReservaEntity> getReservas() {
+        return reservas;
+    }
+
+    public void setReservas(List<ReservaEntity> reservas) {
+        this.reservas = reservas;
+    }
 }

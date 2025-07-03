@@ -5,6 +5,8 @@ import jakarta.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Entity
@@ -37,6 +39,13 @@ public class ReservaEntity implements Serializable {
     @ManyToOne
     @JoinColumn(name = "fk_id_cliente")
     private ClienteEntity clienteEntity;
+
+    @OneToMany(mappedBy = "reservaEntity")
+    private List<FacturaEntity> facturas = new ArrayList<>();
+
+    @OneToMany(mappedBy = "reservaEntity")
+    private List<PagoEntity> pagos = new ArrayList<>();
+
 
     public ReservaEntity() {
     }
@@ -113,4 +122,19 @@ public class ReservaEntity implements Serializable {
         this.clienteEntity = clienteEntity;
     }
 
+    public List<FacturaEntity> getFacturas() {
+        return facturas;
+    }
+
+    public void setFacturas(List<FacturaEntity> facturas) {
+        this.facturas = facturas;
+    }
+
+    public List<PagoEntity> getPagos() {
+        return pagos;
+    }
+
+    public void setPagos(List<PagoEntity> pagos) {
+        this.pagos = pagos;
+    }
 }

@@ -1,9 +1,6 @@
 package com.ud.gestionhotel.persistence;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 import java.io.Serializable;
 
@@ -25,6 +22,9 @@ public class AdministradorGeneralEntity implements Serializable {
     private String primerApellido;
     @Column(name = "segundo_apellido")
     private String segundoApellido;
+
+    @OneToOne(mappedBy = "administradorGeneralEntity")
+    private UsuarioEntity usuario;
 
     public AdministradorGeneralEntity() {
     }
@@ -93,5 +93,13 @@ public class AdministradorGeneralEntity implements Serializable {
 
     public void setPrimerApellido(String primerApellido) {
         this.primerApellido = primerApellido;
+    }
+
+    public UsuarioEntity getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(UsuarioEntity usuario) {
+        this.usuario = usuario;
     }
 }

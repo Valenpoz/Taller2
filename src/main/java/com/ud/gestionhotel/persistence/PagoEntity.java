@@ -11,7 +11,6 @@ import java.time.LocalDateTime;
 @Table(name = "pago")
 public class PagoEntity implements Serializable {
 
-    public Object getReservaEntity;
     @Id
     @Column(name = "id_pago")
     private long id;
@@ -27,6 +26,9 @@ public class PagoEntity implements Serializable {
     @ManyToOne
     @JoinColumn(name = "fk_id_reserva")
     private ReservaEntity reservaEntity;
+
+    @OneToOne(mappedBy = "pagoEntity")
+    private PagoEntity pagoEntity;
 
     public PagoEntity() {
     }
@@ -76,5 +78,13 @@ public class PagoEntity implements Serializable {
 
     public void setReservaEntity(ReservaEntity reservaEntity) {
         this.reservaEntity = reservaEntity;
+    }
+
+    public PagoEntity getPagoEntity() {
+        return pagoEntity;
+    }
+
+    public void setPagoEntity(PagoEntity pagoEntity) {
+        this.pagoEntity = pagoEntity;
     }
 }

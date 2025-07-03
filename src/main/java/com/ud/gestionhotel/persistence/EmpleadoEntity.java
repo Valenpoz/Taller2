@@ -23,6 +23,9 @@ public class EmpleadoEntity implements Serializable {
     @Column(name = "segundo_apellido")
     private String segundoApellido;
 
+    @OneToOne(mappedBy = "empleadoEntity")
+    private UsuarioEntity usuario;
+
     public EmpleadoEntity() {
     }
 
@@ -90,5 +93,13 @@ public class EmpleadoEntity implements Serializable {
 
     public void setSegundoApellido(String segundoApellido) {
         this.segundoApellido = segundoApellido;
+    }
+
+    public UsuarioEntity getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(UsuarioEntity usuario) {
+        this.usuario = usuario;
     }
 }
